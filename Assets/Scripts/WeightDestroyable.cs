@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeightDestroyable : Destroyable {
+public class WeightDestroyable : Destroyable
+{
 
 
     public int weight = 1;
@@ -10,5 +11,6 @@ public class WeightDestroyable : Destroyable {
     {
         base.onDestroy();
         Debug.Log(tag + " will be destroyed");
+        Camera.main.GetComponent<CameraShake>().shakeFor(1.0f);
     }
 }

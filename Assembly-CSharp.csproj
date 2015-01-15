@@ -47,12 +47,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BottomPlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\CollectibleCleaner.cs" />
      <Compile Include="Assets\Scripts\CollectibleGenerator.cs" />
      <Compile Include="Assets\Scripts\Destroyable.cs" />
+     <Compile Include="Assets\Scripts\FantomeController.cs" />
      <Compile Include="Assets\Scripts\GarbageCollector.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\PillGenerator.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Teleport.cs" />
      <Compile Include="Assets\Scripts\TopPlayerMovement.cs" />
      <Compile Include="Assets\Scripts\WeightDestroyable.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
