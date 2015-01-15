@@ -25,7 +25,7 @@ public abstract class PlayerMovement : MonoBehaviour
         if (isFront(collision.collider))
         {
             WeightDestroyable w = collision.collider.GetComponent<WeightDestroyable>();
-            if (w == null || w.weight >= this.transform.localScale.x)
+            if (w == null || w.weight >= this.transform.FindChild("avatar").localScale.x)
             {
                 Debug.Log("target w (" + w.weight + ") >= myScale (" + this.transform.localScale.x + ")");
                 canMove = false;

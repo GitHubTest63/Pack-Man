@@ -42,7 +42,7 @@ public class GarbageCollector : MonoBehaviour
     {
         float scale = ((float)this.collectibleCount / MAX_COLLECTIBLE) * (MAX_SCALE - MIN_SCALE) + MIN_SCALE;
         Debug.Log("Scale = " + scale);
-        transform.localScale = new Vector3(scale, scale, scale);
+        transform.FindChild("avatar").localScale = new Vector3(scale, scale, scale);
     }
 
     public int getCollectibleCount()

@@ -62759,13 +62759,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c298ab384b8ac84eabdcf460836d26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pill: {fileID: 0}
-  xMin: 0
-  xMax: 0
-  zMin: 0
-  zMax: 0
-  timerSpawn: 0
-  maxPillsOnScreen: 0
+  pill: {fileID: 100000, guid: 66a807b09c0af264e9d2e9263dddb0b6, type: 2}
+  xMin: -13.5
+  xMax: 13
+  zMin: 16
+  zMax: -16
+  timerSpawn: 1
+  maxPillsOnScreen: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
