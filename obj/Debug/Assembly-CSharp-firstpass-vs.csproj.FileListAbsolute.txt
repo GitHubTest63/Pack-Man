@@ -1,0 +1,12 @@
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\UnityEditor.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\UnityEngine.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\UnityEngine.UI.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\Mono.Cecil.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\nunit.framework.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\Unity.DataContract.dll
+E:\Florent\Unity Projects\Pack-Man\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+E:\Florent\Unity Projects\Pack-Man\obj\Debug\Assembly-CSharp-firstpass-vs.csprojResolveAssemblyReference.cache
+E:\Florent\Unity Projects\Pack-Man\obj\Debug\Assembly-CSharp-firstpass.dll
+E:\Florent\Unity Projects\Pack-Man\obj\Debug\Assembly-CSharp-firstpass.pdb
