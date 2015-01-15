@@ -13,12 +13,6 @@ public class CollectibleCleaner : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             Debug.Log("!!!!! Player enter in cleaner !!!!!");
-            PlayerMovement[] playerMovement = other.GetComponents<PlayerMovement>();
-            if (playerMovement != null)
-                playerMovement[0].stopMove();
-            else
-                Debug.Log("no playerMovementScript !!! ");
-
             GarbageCollector collector = other.GetComponent<GarbageCollector>();
             if (collector != null)
             {
@@ -45,7 +39,11 @@ public class CollectibleCleaner : MonoBehaviour
         while (garbageCollectors.Contains(collector))
         {
             yield return new WaitForSeconds(cleanInterval);
-            collector.decrease();
+            if (collector.getCollectibleCount() > 0)
+            {
+                collector.decrease();
+            }
+
         }
     }
 }

@@ -3,25 +3,18 @@ using System.Collections;
 
 public class Teleport : MonoBehaviour
 {
-    public Transform destination;
-
-    void Start()
-    {
-        if (destination == null)
-        {
-            Debug.LogError("Teleporter has  no position to teleport");
-            enabled = false;
-        }
-    }
-
-    void Update()
-    {
-
-    }
+    public Vector3 mirrorAxis;
 
     void OnTriggerEnter(Collider other)
     {
-        other.transform.position = this.destination.position;
-        Debug.Log("Teleport");
+        Vector3 pos = other.transform.position;
+        if (mirrorAxis.x == 0)
+            pos.x *= -1;
+        if (mirrorAxis.y == 0)
+            pos.y *= -1;
+        if (mirrorAxis.z == 0)
+            pos.z *= -1;
+        other.transform.position = pos;
+        Debug.Log("Teleport " + other.tag);
     }
 }

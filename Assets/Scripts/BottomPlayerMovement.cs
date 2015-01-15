@@ -8,8 +8,9 @@ public class BottomPlayerMovement : PlayerMovement
     private static Quaternion UP = Quaternion.Euler(0.0f * Vector3.up);
     private static Quaternion DOWN = Quaternion.Euler(180.0f * Vector3.up);
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         transform.rotation = UP;
     }
 
@@ -41,7 +42,10 @@ public class BottomPlayerMovement : PlayerMovement
         canMove = true;
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+
+    }
     void FixedUpdate()
     {
         if (Application.isEditor)

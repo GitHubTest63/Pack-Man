@@ -18,8 +18,6 @@ public class FantomeController : MonoBehaviour
     {
         fantomeTransform = GetComponent<Transform>();
         fantomeRigidbody = GetComponent<Rigidbody>();
-        Time.timeScale = 0.5f;
-
     }
 
     void TurnRight()
@@ -42,9 +40,9 @@ public class FantomeController : MonoBehaviour
         Physics.Raycast(fantomeTransform.position - fantomeTransform.forward * 0.5f, -fantomeTransform.right, out fantomeHitLeft, this.rayCastRange);
 
         //debug
-        Debug.DrawRay(fantomeTransform.position, 0.5f * fantomeTransform.forward, Color.red);
-        Debug.DrawRay(fantomeTransform.position - fantomeTransform.forward * 0.5f, fantomeTransform.right, Color.blue);
-        Debug.DrawRay(fantomeTransform.position - fantomeTransform.forward * 0.5f, -fantomeTransform.right, Color.green);
+        //Debug.DrawRay(fantomeTransform.position, 0.5f * fantomeTransform.forward, Color.red);
+        //Debug.DrawRay(fantomeTransform.position - fantomeTransform.forward * 0.5f, fantomeTransform.right, Color.blue);
+        //Debug.DrawRay(fantomeTransform.position - fantomeTransform.forward * 0.5f, -fantomeTransform.right, Color.green);
 
 
         // si collider devant et gauche mais pas à droite, alors je tourne à droite forcément
@@ -54,7 +52,7 @@ public class FantomeController : MonoBehaviour
             TurnRight();
             leftHit = true;
             rightHit = true;
-            Debug.Log("droite");
+            //Debug.Log("droite");
         }
 
         // si collider devant et droite mais pas à gauche, alors je tourne à gauche forcément
@@ -64,7 +62,7 @@ public class FantomeController : MonoBehaviour
             TurnLeft();
             leftHit = true;
             rightHit = true;
-            Debug.Log("left");
+            //Debug.Log("left");
         }
 
         // si pas de collider à droite et devant et collider à gauche, alors une chance de tourner à droite
@@ -78,7 +76,7 @@ public class FantomeController : MonoBehaviour
             }
             leftHit = true;
             rightHit = true;
-            Debug.Log("droite chance : " + Mathf.Floor(chance));
+            //Debug.Log("droite chance : " + Mathf.Floor(chance));
         }
 
         // si pas de collider à gauche et devant et collider à droite, alors une chance de tourner à gauche
@@ -92,7 +90,7 @@ public class FantomeController : MonoBehaviour
             }
             leftHit = true;
             rightHit = true;
-            Debug.Log("gauche chance : " + Mathf.Floor(chance));
+            //Debug.Log("gauche chance : " + Mathf.Floor(chance));
         }
         // si pas de collider à gauche et devant et droite, alors une chance de tourner à gauche ou à droite
         else if (!fantomeHitLeft.collider && !fantomeHitFront.collider && !fantomeHitRight.collider && leftHit == false && rightHit == false)
@@ -113,7 +111,7 @@ public class FantomeController : MonoBehaviour
             }
             leftHit = true;
             rightHit = true;
-            Debug.Log("both chance : " + Mathf.Floor(chance));
+            //Debug.Log("both chance : " + Mathf.Floor(chance));
         }
 
 
@@ -132,7 +130,7 @@ public class FantomeController : MonoBehaviour
             }
             leftHit = true;
             rightHit = true;
-            Debug.Log("both chance : " + Mathf.Floor(chance));
+            //Debug.Log("both chance : " + Mathf.Floor(chance));
         }
         if (fantomeHitRight.collider)
         {

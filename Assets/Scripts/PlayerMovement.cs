@@ -3,16 +3,19 @@ using System.Collections;
 
 public abstract class PlayerMovement : MonoBehaviour
 {
-
+    public static float MAX_SPEED;
+    public static float MIN_SPEED;
     public float speed = 3;
     public int weight = 1;
     protected bool canMove = true;
-    protected MapGenerator mapGenerator;
+    //protected MapGenerator mapGenerator;
     protected Vector2 startInput;
 
-    void Start()
+    protected virtual void Start()
     {
-        this.mapGenerator = MapGenerator.instance;
+        //this.mapGenerator = MapGenerator.instance;
+        MAX_SPEED = this.speed;
+        MIN_SPEED = MAX_SPEED / 10;
     }
 
     void Update()
@@ -22,13 +25,15 @@ public abstract class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (isFront(collision.collider))
+        if (collision.collider.tag.Equals("Wall"))
         {
+            /*if (isFront(collision.collider))
+            {*/
             WeightDestroyable w = collision.collider.GetComponent<WeightDestroyable>();
-            if (w == null || w.weight >= this.transform.FindChild("avatar").localScale.x)
+            if (w == null || w.weight >= this.transform.localScale.x)
             {
-                Debug.Log("target w (" + w.weight + ") >= myScale (" + this.transform.localScale.x + ")");
-                canMove = false;
+                if (isFront(collision.collider))
+                    canMove = false;
                 //Debug.Log("stopMove");
             }
             else
@@ -36,6 +41,7 @@ public abstract class PlayerMovement : MonoBehaviour
                 w.destroy();
                 //Debug.Log("Collide but don't stop");
             }
+            //}
         }
     }
 

@@ -9,7 +9,7 @@ public class CameraShake : MonoBehaviour
     private Camera camera;
     private Vector3 startPosition;
     private static Vector3 offset = new Vector3();
-    public float MAX_RANGE = 0.5f;
+    public float MAX_RANGE = 0.1f;
 
     void Start()
     {
