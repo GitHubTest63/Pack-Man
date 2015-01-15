@@ -28,12 +28,12 @@ public abstract class PlayerMovement : MonoBehaviour
             if (w == null || w.weight >= this.weight)
             {
                 canMove = false;
-                Debug.Log("stopMove");
+                //Debug.Log("stopMove");
             }
             else
             {
                 w.destroy();
-                Debug.Log("Collide but don't stop");
+                //Debug.Log("Collide but don't stop");
             }
         }
     }
@@ -45,7 +45,8 @@ public abstract class PlayerMovement : MonoBehaviour
         {
             if (hit.collider == collider)
             {
-                Debug.Log("is in front me"); return true;
+                //Debug.Log("is in front me");
+                return true;
             }
         }
         return false;

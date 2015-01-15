@@ -4,6 +4,14 @@ using System.Collections;
 public class GarbageCollector : MonoBehaviour
 {
     private int collectibleCount = 0;
+    private static float MIN_SCALE = 0.7f;
+    private static float MAX_SCALE = 2;
+    private static int MAX_COLLECTIBLE = 5;
+
+    void Start()
+    {
+        this.updateScale();
+    }
 
     public void decrease()
     {
@@ -15,6 +23,7 @@ public class GarbageCollector : MonoBehaviour
         collectibleCount -= amount;
         if (collectibleCount < 0)
             collectibleCount = 0;
+        this.updateScale();
     }
 
     public void increase()
@@ -25,6 +34,15 @@ public class GarbageCollector : MonoBehaviour
     public void increase(int amount)
     {
         collectibleCount += amount;
+        this.updateScale();
+
+    }
+
+    private void updateScale()
+    {
+        float scale = ((float)this.collectibleCount / MAX_COLLECTIBLE) * (MAX_SCALE - MIN_SCALE) + MIN_SCALE;
+        Debug.Log("Scale = " + scale);
+        transform.localScale = new Vector3(scale, scale, scale);
     }
 
     public int getCollectibleCount()
@@ -39,5 +57,10 @@ public class GarbageCollector : MonoBehaviour
             increase();
             Destroy(other.gameObject);
         }
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(0, 0, 100, 30), "Collectibles : " + this.collectibleCount);
     }
 }

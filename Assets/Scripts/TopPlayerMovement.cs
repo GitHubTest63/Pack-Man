@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TopPlayerMovement : MonoBehaviour
+public class TopPlayerMovement : PlayerMovement
 {
     private static Quaternion RIGHT = Quaternion.Euler(90.0f * Vector3.up);
     private static Quaternion LEFT = Quaternion.Euler(-90.0f * Vector3.up);
     private static Quaternion UP = Quaternion.Euler(0.0f * Vector3.up);
     private static Quaternion DOWN = Quaternion.Euler(180.0f * Vector3.up);
 
-    public float speed = 3;
-    private MapGenerator mapGenerator;
-
-    private Vector2 startInput;
     void Start()
     {
-
+        transform.rotation = DOWN;
     }
 
     // Update is called once per frame

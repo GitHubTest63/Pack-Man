@@ -10,7 +10,7 @@ public class BottomPlayerMovement : PlayerMovement
 
     void Start()
     {
-        transform.rotation = RIGHT;
+        transform.rotation = UP;
     }
 
     private void moveRight()

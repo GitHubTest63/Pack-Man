@@ -2,20 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CollectibleCleaner : MonoBehaviour {
+public class CollectibleCleaner : MonoBehaviour
+{
 
     public float cleanInterval = 1.0f;
-    private List<GarbageCollector> garbageCollectors = new List<GarbageCollector>(); 
+    private List<GarbageCollector> garbageCollectors = new List<GarbageCollector>();
 
-   void OnTriggerEnter(Collider other) {
-        if (collider.tag.Equals("Player"))
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
         {
             Debug.Log("!!!!! Player enter in cleaner !!!!!");
-            PlayerMovement[] playerMovement = collider.GetComponents<PlayerMovement>();
+            PlayerMovement[] playerMovement = other.GetComponents<PlayerMovement>();
             if (playerMovement != null)
                 playerMovement[0].stopMove();
+            else
+                Debug.Log("no playerMovementScript !!! ");
 
-            GarbageCollector collector = collider.GetComponent<GarbageCollector>();
+            GarbageCollector collector = other.GetComponent<GarbageCollector>();
             if (collector != null)
             {
                 this.garbageCollectors.Add(collector);
@@ -26,9 +30,9 @@ public class CollectibleCleaner : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (collider.tag.Equals("Player"))
+        if (other.tag.Equals("Player"))
         {
-            GarbageCollector collector = collider.GetComponent<GarbageCollector>();
+            GarbageCollector collector = other.GetComponent<GarbageCollector>();
             if (collector != null)
             {
                 this.garbageCollectors.Remove(collector);
