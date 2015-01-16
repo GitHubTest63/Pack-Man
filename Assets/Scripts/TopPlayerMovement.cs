@@ -46,16 +46,16 @@ public class TopPlayerMovement : PlayerMovement
     // Update is called once per frame
     void Update()
     {
-        if (Application.isEditor)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-                moveRight();
-            if (Input.GetKeyDown(KeyCode.Q))
-                moveLeft();
-            if (Input.GetKeyDown(KeyCode.Z))
-                moveUp();
-            if (Input.GetKeyDown(KeyCode.S))
-                moveDown();
-        }
+        //if (Application.isEditor)
+        //{
+        if (Input.GetKeyDown(KeyCode.D))
+            moveRight();
+        if (Input.GetKeyDown(KeyCode.Q))
+            moveLeft();
+        if (Input.GetKeyDown(KeyCode.Z))
+            moveUp();
+        if (Input.GetKeyDown(KeyCode.S))
+            moveDown();
+        //}
     }
 }

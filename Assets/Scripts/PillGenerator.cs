@@ -20,8 +20,11 @@ public class PillGenerator : MonoBehaviour
     RaycastHit hitPill;
     private static string[] LAYERS = new string[] { "Default", "PillBlocker" };
 
+    public static PillGenerator instance;
+
     void Start()
     {
+        instance = this;
         pillCoodinates_X = (int)(Random.Range(0, (xMax - xMin) + 1) + xMin);
         pillCoodinates_Z = (int)(Random.Range(0, (zMax - zMin) + 1) + zMin);
     }
@@ -44,6 +47,16 @@ public class PillGenerator : MonoBehaviour
         {
             CheckPillPosition();
         }
+    }
+
+    public void decreasePillOnScreen()
+    {
+        this.decreasePillOnScreen(1);
+    }
+
+    public void decreasePillOnScreen(int amount)
+    {
+        this.pillsOnScreen -= amount;
     }
 
     void SpawnPill(GameObject _pill)

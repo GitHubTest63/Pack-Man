@@ -45,28 +45,28 @@ public class BottomPlayerMovement : PlayerMovement
 
     void Update()
     {
-        if (Application.isEditor)
+        //if (Application.isEditor)
+        //{
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        if (h > 0)
         {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-            if (h > 0)
-            {
-                moveRight();
-            }
-            else if (h < 0)
-            {
-                moveLeft();
-            }
-
-            if (v > 0)
-            {
-                moveUp();
-            }
-            else if (v < 0)
-            {
-                moveDown();
-            }
+            moveRight();
         }
+        else if (h < 0)
+        {
+            moveLeft();
+        }
+
+        if (v > 0)
+        {
+            moveUp();
+        }
+        else if (v < 0)
+        {
+            moveDown();
+        }
+        //}
     }
 
     //void FixedUpdate()

@@ -161,16 +161,12 @@ public class GarbageCollector : MonoBehaviour
         if (other.tag.Equals("Collectible"))
         {
             increase();
+            PillGenerator.instance.decreasePillOnScreen();
             Destroy(other.gameObject);
             GameObject emitter = Instantiate(Resources.Load("Prefabs/Pill_collect")) as GameObject;
             emitter.transform.position = other.transform.position;
             ParticleSystem emitterSystem = emitter.GetComponent<ParticleSystem>();
             Destroy(emitter, emitterSystem.duration + emitterSystem.startLifetime);
         }
-    }
-
-    void OnGUI()
-    {
-        GUI.Label(new Rect(0, 0, 100, 30), "Collectibles : " + this.collectibleCount);
     }
 }

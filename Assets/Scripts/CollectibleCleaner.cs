@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class CollectibleCleaner : MonoBehaviour
 {
-
-    public AudioClip dropPillSound;
     private Animator anim;
     private bool opened;
 
@@ -27,7 +25,7 @@ public class CollectibleCleaner : MonoBehaviour
             {
                 this.garbageCollectors.Add(collector);
                 StartCoroutine(clean(collector));
-                collector.stopDropEffect();
+                collector.startDropEffect();
                 if (!opened && collector.getCollectibleCount() > 0)
                 {
                     opened = true;
