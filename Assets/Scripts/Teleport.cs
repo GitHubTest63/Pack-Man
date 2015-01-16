@@ -14,6 +14,8 @@ public class Teleport : MonoBehaviour
             pos.y *= -1;
         if (mirrorAxis.z == 0)
             pos.z *= -1;
+
+        pos += transform.forward * (other.transform.localScale.x + 1) * 0.5f;
         other.transform.position = pos;
         Debug.Log("Teleport " + other.tag);
     }

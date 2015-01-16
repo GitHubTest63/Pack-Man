@@ -18,6 +18,7 @@ public class PillGenerator : MonoBehaviour
     float pillCoodinates_Z;
     Vector3 pillCoordinates;
     RaycastHit hitPill;
+    private static string[] LAYERS = new string[] { "Default", "PillBlocker" };
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class PillGenerator : MonoBehaviour
         pillCoodinates_Z = (int)(Random.Range(0, (zMax - zMin) + 1) + zMin);
         pillCoordinates = new Vector3(pillCoodinates_X, 0.5f, pillCoodinates_Z);
 
-        Physics.Raycast(pillCoordinates + new Vector3(0, 50, 0), -Vector3.up, out hitPill);
+        Physics.Raycast(pillCoordinates + new Vector3(0, 50, 0), -Vector3.up, out hitPill, LayerMask.GetMask(LAYERS));
         //Debug.DrawRay(pillCoordinates, -Vector3.up, Color.red);
 
         if (hitPill.collider == null)

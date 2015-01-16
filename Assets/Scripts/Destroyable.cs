@@ -16,12 +16,13 @@ public class Destroyable : MonoBehaviour
     }
 
     public void destroy()
-    {        
+    {
         onDestroy();
         Destroy(this.gameObject, delay);
     }
 
-    protected virtual void onDestroy() { 
-        Debug.Log("onDestroy"); 
+    protected virtual void onDestroy()
+    {
+        //Debug.Log("onDestroy"); 
     }
 }

@@ -3,89 +3,59 @@ using System.Collections;
 
 public class TopPlayerMovement : PlayerMovement
 {
-    private static Quaternion RIGHT = Quaternion.Euler(90.0f * Vector3.up);
-    private static Quaternion LEFT = Quaternion.Euler(-90.0f * Vector3.up);
-    private static Quaternion UP = Quaternion.Euler(0.0f * Vector3.up);
-    private static Quaternion DOWN = Quaternion.Euler(180.0f * Vector3.up);
-
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         transform.rotation = DOWN;
+    }
+
+    protected override void reset()
+    {
+        base.reset();
+        this.transform.rotation = DOWN;
+    }
+
+    private void moveRight()
+    {
+        //Debug.Log("Right");
+        transform.rotation = RIGHT;
+        setMove();
+    }
+
+    private void moveLeft()
+    {
+        //Debug.Log("Left");
+        transform.rotation = LEFT;
+        setMove();
+    }
+
+    private void moveUp()
+    {
+        //Debug.Log("Up");
+        transform.rotation = UP;
+        setMove();
+    }
+
+    private void moveDown()
+    {
+        //Debug.Log("Down");
+        transform.rotation = DOWN;
+        setMove();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Touch[] touches = Input.touches;
-        if (touches.Length > 0)
+        if (Application.isEditor)
         {
-            for (int i = 0; i < touches.Length; i++)
-            {
-                if (touches[i].phase == TouchPhase.Began)
-                {
-                    startInput = touches[i].position;
-                }
-                else if (touches[i].phase == TouchPhase.Ended)
-                {
-                    Vector2 diff = startInput - touches[i].position;
-                    if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
-                    {
-                        if (diff.x > 0)
-                        {
-                            Debug.Log("Right");
-                            transform.rotation = RIGHT;
-                        }
-                        else if (diff.x < 0)
-                        {
-                            Debug.Log("Left");
-                            transform.rotation = LEFT;
-                        }
-                    }
-                    else
-                    {
-                        if (diff.y > 0)
-                        {
-                            Debug.Log("Top");
-                            transform.rotation = UP;
-                        }
-                        else if (diff.y < 0)
-                        {
-                            Debug.Log("Bottom");
-                            transform.rotation = DOWN;
-                        }
-                    }
-                    //if (touches[i].position.y > Screen.height * 0.5f)
-                    //{
-                    //Debug.Log("TopView");
-                    //if (touches[i].deltaPosition.x > 0)
-                    //{
-                    //    Debug.Log("Right");
-                    //    transform.rotation = RIGHT;
-                    //}
-                    //else if (touches[i].deltaPosition.x < 0)
-                    //{
-                    //    Debug.Log("Left");
-                    //    transform.rotation = LEFT;
-                    //}
-
-                    //if (touches[i].deltaPosition.y > 0)
-                    //{
-                    //    Debug.Log("Top");
-                    //    transform.rotation = TOP;
-                    //}
-                    //else if (touches[i].deltaPosition.y < 0)
-                    //{
-                    //    Debug.Log("Bottom");
-                    //    transform.rotation = BOTTOM;
-                    //}
-                }
-                //else
-                //{
-                //    Debug.Log("BottomView");
-                //}
-                //}
-            }
+            if (Input.GetKeyDown(KeyCode.D))
+                moveRight();
+            if (Input.GetKeyDown(KeyCode.Q))
+                moveLeft();
+            if (Input.GetKeyDown(KeyCode.Z))
+                moveUp();
+            if (Input.GetKeyDown(KeyCode.S))
+                moveDown();
         }
-        //transform.Translate(transform.forward * speed * Time.deltaTime);
     }
 }

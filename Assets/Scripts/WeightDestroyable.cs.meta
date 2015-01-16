@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: bb292e54e9d65254294a5c1b3ee0e369
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - destroySound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
